@@ -141,27 +141,27 @@
                         <!-- User Profile-->
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="{{URL::to('/admin/dashboard')}}" aria-expanded="false"><i class="mdi mr-2 mdi-gauge"></i>
-                                    <span class="hide-menu">Dash Board</span></a>
+                                    <span class="hide-menu">Bảng Điều Khiển</span></a>
                             </li>
 
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="{{route('user.index')}}" aria-expanded="false"><i class="mdi mr-2 mdi-account-check"></i>
-                                    <span class="hide-menu">Account Manager</span></a>
+                                    <span class="hide-menu">Quản Lý Tài Khoản</span></a>
                             </li>
 
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="{{route('brand.index')}}" aria-expanded="false"><i class="mdi mr-2 mdi-book-open-variant"></i>
-                                    <span class="hide-menu">Brand Product</span></a>
+                                    <span class="hide-menu">Quản Lý Thương Hiệu</span></a>
                             </li>
 
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="{{route('category.index')}}" aria-expanded="false"><i class="mdi mr-2 mdi-nutrition"></i>
-                                    <span class="hide-menu">Category Product</span></a>
+                                    <span class="hide-menu">Quản Lý Danh Mục</span></a>
                             </li>
 
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="{{route('product.index')}}" aria-expanded="false"><i class="mdi mr-2 mdi-table"></i>
-                                    <span class="hide-menu">Product</span></a>
+                                    <span class="hide-menu">Quản Lý Sản Phẩm</span></a>
                             </li>
 
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"

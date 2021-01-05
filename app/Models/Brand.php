@@ -15,4 +15,8 @@ class Brand extends Model
         'content',
         'status',
     ];
+    // In product model
+    public function product(){
+        return $this->hasMany('App\Models\Product', 'idcat');
+    }
 }

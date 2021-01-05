@@ -20,7 +20,7 @@ class BrandController extends Controller
 
     public function index()
     {
-        $brands = Brand::all();
+        $brands = Brand::paginate(5);
         return view( $this->viewprefix.'index',compact('brands'));
     }
 
@@ -58,7 +58,9 @@ class BrandController extends Controller
             'name'=>'required',
             'content' => 'required',
         ]);
-        $brand->image = $this->imageUpload($request);
+        if($request->hasFile('image')){
+            $brand->image = $this->imageUpload($request);
+        }
         $brand->name=$request->name;
         $brand->content=$request->content;
         $brand->status=$request->status;
@@ -94,6 +96,13 @@ class BrandController extends Controller
             }
         }
         return '';
+    }
+
+    public function productlist($id){
+        $cat = Category::all();
+        $brand = Brand::all();
+        $products = Category::find($id)->product;
+        return view($this->viewprefix.'productlist', compact('products','cat','brand'));
     }
 
     public function active($id)

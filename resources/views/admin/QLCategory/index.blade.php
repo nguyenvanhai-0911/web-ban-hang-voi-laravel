@@ -1,13 +1,18 @@
 @extends('layout_admin')
 @section('admin_content')
+<style>
+.hidden{
+    display: none;
+}
+</style>
     <div class="container-fluid">
                 <div class="row" style="text-align: center;">
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title" style="text-align:center">Category Product</h4>
-                                <h6 class="card-subtitle">Category Product<code>.table</code></h6>
-                                <a href="{{route('category.create')}}" class="btn btn-primary" style="background:#26c6da">Add Category Product</a>
+                                <h4 class="card-title" style="text-align:center">Danh Mục Sản Phẩm</h4>
+                                <h6 class="card-subtitle">Danh Mục<code>.table</code></h6>
+                                <a href="{{route('category.create')}}" class="btn btn-primary" style="background:#26c6da">Thêm Danh Mục Sản Phẩm</a>
                                 <div class="table-responsive">
                                     @if(Session::has('message'))
                                         <div class="alert alert-success">
@@ -18,14 +23,14 @@
                                             <thead>
                                                 <tr>
                                                     <th class="border-top-0">#</th>
-                                                    <th class="border-top-0">Image</th>
-                                                    <th class="border-top-0">Name</th>
-                                                    <th class="border-top-0">Price</th>
-                                                    <th class="border-top-0">Discount</th>
-                                                    <th class="border-top-0">View product</th>
-                                                    <th class="border-top-0">Edit</th>
-                                                    <th class="border-top-0">Lock</th>
-                                                    <th class="border-top-0">Delete</th>
+                                                    <th class="border-top-0">Hình Ảnh</th>
+                                                    <th class="border-top-0">Tên Danh Mục</th>
+                                                    <th class="border-top-0">Giá Bán</th>
+                                                    <th class="border-top-0">Giảm Giá</th>
+                                                    <th class="border-top-0">Sản Phẩm</th>
+                                                    <th class="border-top-0">Chỉnh Sửa</th>
+                                                    <th class="border-top-0">Trạng Thái</th>
+                                                    <th class="border-top-0">Xóa</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -57,6 +62,7 @@
 
                                                 </tr>
                                                 @endforeach
+                                                <tr><td colspan="10">{{$categories->links()}}</td></tr>
                                             </tbody>
                                         </table>
                                     </form>

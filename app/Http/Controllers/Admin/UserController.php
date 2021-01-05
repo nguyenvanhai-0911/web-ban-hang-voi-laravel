@@ -67,7 +67,9 @@ class UserController extends Controller
             'txtemail'=>'required',
             'txtpassword'=>'required|min:5',
         ]);
-        $user->image = $this->imageUpload($request);
+        if($request->hasFile('image')){
+            $user->image = $this->imageUpload($request);
+        }
         $user->name = $request->txtname;
         $user->email = $request->txtemail;
         $user->phone = $request->txtphone;

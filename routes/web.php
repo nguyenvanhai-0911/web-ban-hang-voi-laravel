@@ -16,8 +16,18 @@ Route::group(['middleware'=>'CheckAdminLogin', 'namespace' => 'admin'], function
 });
 
 // Website
-Route::get('/','HomeController@index');
-Route::get('/trang-chu','HomeController@index');
+//Route::get('/pages','HomeController@index');
+Route::get('/pages/home','HomeController@Home')->name('pages.home');
+Route::get('/pages/about','HomeController@About')->name('pages.about');
+Route::get('/pages/shop','HomeController@Shop_All')->name('pages.shop');
+Route::get('/pages/contact','HomeController@Contact')->name('pages.contact');
+Route::get('/pages/single','HomeController@Single')->name('pages.single');
+Route::get('/pages/checkout','HomeController@Checkout')->name('pages.checkout');
+Route::get('/pages/404','HomeController@Err')->name('pages.404');
+Route::get('/pages/shop_cate/{id}','HomeController@search_Category')->name('pages.search_category');
+Route::get('/pages/shop_brand/{id}','HomeController@search_Brand')->name('pages.search_brand');
+Route::get('/pages/single/{id}','HomeController@detail_Pro')->name('pages.detail_pro');
+
 
 // Admin
 Route::group(['middleware'=>'CheckAdminLogin','prefix'=>'admin/user','namespace' => 'admin'],function(){
@@ -42,6 +52,7 @@ Route::get('admin/category/unactive/{id}', 'admin\CategoryController@unactive')-
 // Brand
 Route::resource('admin/brand',admin\BrandController::class);
 Route::get('admin/brand/delete/{id}', 'admin\BrandController@delete')->name('brand.delete');
+Route::get('admin/brand/prodictlist/{id}', 'admin\BrandController@productlist')->name('brand.productlist');
 Route::get('admin/brand/active/{id}', 'admin\BrandController@active')->name('brand.active');
 Route::get('admin/brand/unactive/{id}', 'admin\BrandController@unactive')->name('brand.unactive');
 

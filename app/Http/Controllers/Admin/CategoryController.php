@@ -20,7 +20,7 @@ class CategoryController extends Controller
 
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::paginate(5);
         return view( $this->viewprefix.'index',compact('categories'));
     }
 
@@ -64,7 +64,9 @@ class CategoryController extends Controller
             'discount'=>'required',
             'content' => 'required',
         ]);
-        $category->image = $this->imageUpload($request);
+        if($request->hasFile('image')){
+            $category->image = $this->imageUpload($request);
+        }
         $category->price=$request->price;
         $category->name=$request->name;
         $category->discount=$request->discount;

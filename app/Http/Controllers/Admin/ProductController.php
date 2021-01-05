@@ -23,7 +23,7 @@ class ProductController extends Controller
     {
         $cat = Category::all();
         $brand = Brand::all();
-        $products = Product::all();
+        $products = Product::paginate(5);
         return view( $this->viewprefix.'index',compact('products','cat','brand'));
     }
 
@@ -77,7 +77,10 @@ class ProductController extends Controller
             'discount'=>'required',
             'content' => 'required',
         ]);
-        $product->image = $this->imageUpload($request);
+        if($request->hasFile('image')){
+            $product->image = $this->imageUpload($request);
+        }
+
         $product->price=$request->price;
         $product->name=$request->name;
         $product->idcat=$request->idcat;
